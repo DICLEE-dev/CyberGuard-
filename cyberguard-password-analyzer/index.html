@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberGuard | Gerçek Zamanlı Şifre Analizörü</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">🛡️ SİBER GÜVENLİK ARACI</div>
+      <h1>CyberGuard Şifre Analizörü</h1>
+      <p>Şifrenizin kaba kuvvet (brute-force) saldırılarına karşı dayanıklılığını ve kırılma süresini gerçek zamanlı ölçün.</p>
+    </header>
+
+    <main>
+      <!-- Şifre Giriş Alanı -->
+      <section class="input-card">
+        <label for="passwordInput">Analiz Edilecek Şifre</label>
+        <div class="input-wrapper">
+          <input
+            type="password"
+            id="passwordInput"
+            placeholder="Şifrenizi buraya yazın..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button type="button" id="toggleVisibility" title="Şifreyi Göster/Gizle">👁️</button>
+          <button type="button" id="copyBtn" title="Şifreyi Kopyala">📋</button>
+        </div>
+
+        <div class="strength-bar-container">
+          <div id="strengthBar" class="strength-bar"></div>
+        </div>
+
+        <div class="strength-meta">
+          <span id="strengthLabel">Şifre bekleniyor...</span>
+          <span id="entropyLabel">0 bit entropi</span>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="generateBtn" class="btn-primary">⚡ Güçlü Şifre Üret (16 Karakter)</button>
+        </div>
+      </section>
+
+      <!-- Donanım Bazlı Kırılma Süreleri -->
+      <section class="grid-cards">
+        <div class="card">
+          <span class="card-title">💻 Standart Bilgisayar (CPU)</span>
+          <span class="card-sub">~10 Milyon tahmin / sn</span>
+          <strong id="timeCpu" class="time-value">-</strong>
+        </div>
+
+        <div class="card highlight">
+          <span class="card-title">🔥 8x RTX 4090 GPU Kümesi</span>
+          <span class="card-sub">~100 Milyar tahmin / sn</span>
+          <strong id="timeGpu" class="time-value">-</strong>
+        </div>
+
+        <div class="card">
+          <span class="card-title">🏢 Süper Bilgisayar / Botnet</span>
+          <span class="card-sub">~10 Trilyon tahmin / sn</span>
+          <strong id="timeSuper" class="time-value">-</strong>
+        </div>
+      </section>
+
+      <!-- Detaylı Analiz ve Zayıf Noktalar -->
+      <section class="details-grid">
+        <div class="panel">
+          <h3>📊 Teknik Metrikler</h3>
+          <ul class="metrics-list">
+            <li><span>Uzunluk:</span> <strong id="metricLength">0 karakter</strong></li>
+            <li><span>Karakter Havuzu:</span> <strong id="metricPool">0 karakter</strong></li>
+            <li><span>Olası Kombinasyon:</span> <strong id="metricCombinations">0</strong></li>
+          </ul>
+          <div class="char-badges">
+            <span id="badgeLower" class="char-badge">a-z Küçük</span>
+            <span id="badgeUpper" class="char-badge">A-Z Büyük</span>
+            <span id="badgeDigit" class="char-badge">0-9 Rakam</span>
+            <span id="badgeSymbol" class="char-badge">#@! Sembol</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>⚠️ Zayıf Nokta & Desen Tespiti</h3>
+          <ul id="weaknessList" class="weakness-list">
+            <li class="neutral">Analiz için şifre girmeye başlayın.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>🔒 Tüm analizler tarayıcınızda yerel olarak yapılır. Şifreniz hiçbir sunucuya gönderilmez.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
